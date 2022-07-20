@@ -41,6 +41,22 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 	return (binary_tree_leaves(tree->left) + binary_tree_leaves(tree->right));
 }
 
+/**
+ * _pow_recursion - returns the value of x raised to the power of y
+ * @x: base
+ * @y: exponent
+ *
+ * Return: x to the power y
+ */
+
+int _pow_recursion(int x, int y)
+{
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	return (x * _pow_recursion(x, y - 1));
+}
 
 /**
  * binary_tree_is_perfect - Function that checks if a binary tree is perfect
@@ -51,15 +67,15 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	unsigned long height, leaves;
+	int height, leaves;
 
 	if (!tree)
 		return (0);
 
-	height = (unsigned long)binary_tree_height(tree);
-	leaves = (unsigned long)binary_tree_leaves(tree);
+	height = (int)binary_tree_height(tree);
+	leaves = (int)binary_tree_leaves(tree);
 
-	if ((pow(2, height)) == leaves)
+	if (_pow_recursion(2, height) == leaves)
 		return (1);
 	return (0);
 }
