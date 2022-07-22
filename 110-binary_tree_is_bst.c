@@ -2,7 +2,9 @@
 
 /**
  * valid_bst - function that checks if is a bst
- * @node: Pointer to a node of the tree
+ * @root: Pointer to a node of the tree
+ * @min: min node value
+ * @max: max node value
  *
  * Return: 1 if node is a leaf, 0 otherwise.
  */
